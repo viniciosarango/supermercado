@@ -6,7 +6,7 @@ class Producto(models.Model):
     nombre_producto = models.CharField(max_length=200, unique=True)
     marca_producto = models.CharField(max_length=50)
     precio = models.IntegerField()
-    imagen = models.ImageField(upload_to='photos/products')
+    imagen_producto = models.ImageField(upload_to='productos/imagen_producto', blank=True, null=True)
 
     def __str__(self):
         return self.nombre_producto
@@ -28,6 +28,6 @@ class Venta(models.Model):
     fecha_venta = models.DateField("Fecha de venta", auto_now=True, auto_now_add=False)
 
     def __str__(self):
-        return self.cliente, self.producto, self.cantidad, self.fecha_venta
+        return f"Venta de {self.cantidad} unidades de '{self.producto}' a '{self.cliente}'"
 
 

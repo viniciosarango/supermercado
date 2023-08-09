@@ -9,6 +9,10 @@ from gestionProductos.models import Producto
 
 def inicio(request):
     productoListado = Producto.objects.all()
+    return render(request, 'inicio.html', {'producto':productoListado})
+
+def gestion(request):
+    productoListado = Producto.objects.all()
     return render(request, 'listar_productos.html', {'producto':productoListado})
 
 def registrarProducto(request):
@@ -24,7 +28,7 @@ def registrarProducto(request):
         producto.imagen_producto = imagen_producto
     producto.save()    
     
-    return redirect ('/')
+    return redirect ('/gestion')
 
 def editarProducto(request, id):
     producto = Producto.objects.get(id = id)
@@ -45,9 +49,9 @@ def actualizarProducto(request):
     if 'imagen_producto' in request.FILES:
         producto.imagen_producto = request.FILES['imagen_producto']
     producto.save()
-    return redirect('/')
+    return redirect('/gestion')
 
 def eliminarProducto (request, id):
     producto = Producto.objects.get(id = id)
     producto.delete()
-    return redirect('/')
+    return redirect('/gestion')

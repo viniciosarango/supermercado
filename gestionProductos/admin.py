@@ -6,7 +6,7 @@ from .models import Producto, Cliente, Venta
 
 
 class ProductosAdmin(admin.ModelAdmin):
-    list_display = ('nombre_producto', 'marca_producto', 'precio', 'imagen')
+    list_display = ('nombre_producto', 'marca_producto', 'precio', 'imagen_producto')
 
 class ClientesAdmin(admin.ModelAdmin):
     list_display = ('nombre_cliente', 'cedula_cliente', 'direccion_cliente', 'telefono_cliente')
