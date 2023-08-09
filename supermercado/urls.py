@@ -16,9 +16,14 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from . import views
+from django.http import HttpResponse
+from gestionProductos.views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.home, name="home"),
+    path('', inicio),
+    path('registrarProducto/', registrarProducto),
+    path('editarProducto/<int:id>', editarProducto, name='editarProducto'),
+    path('actualizarProducto/', actualizarProducto, name='actualizarProducto'),
+    path('eliminarProducto/<int:id>', eliminarProducto, name='eliminarProducto'),
 ]

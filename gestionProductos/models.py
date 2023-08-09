@@ -27,4 +27,7 @@ class Venta(models.Model):
     cantidad = models.IntegerField()
     fecha_venta = models.DateField("Fecha de venta", auto_now=True, auto_now_add=False)
 
+    def __str__(self):
+        return self.cliente, self.producto, self.cantidad, self.fecha_venta
+
 
